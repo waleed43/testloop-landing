@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TestLoop — Google Play closed-testing testers, tracked</title>
+  <meta name="description" content="TestLoop matches your Android app with testers and tracks every day of a 14-day Google Play closed test with a small SDK. Private feedback only — never Play ratings or reviews. TestLoop is a working name.">
+  <meta name="theme-color" content="#090910">
+  <link rel="canonical" href="https://waleed43.github.io/testloop-landing/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TestLoop — closed testing, without the chase">
+  <meta property="og:description" content="12 testers, 14 consecutive days, tracked with a small SDK. Private feedback — never Play ratings or reviews.">
+  <meta property="og:url" content="https://waleed43.github.io/testloop-landing/">
+  <meta property="og:image" content="https://waleed43.github.io/testloop-landing/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TestLoop — closed testing, without the chase">
+  <meta name="twitter:description" content="12 testers, 14 consecutive days, tracked with a small SDK. Private feedback — never Play ratings or reviews.">
+  <meta name="twitter:image" content="https://waleed43.github.io/testloop-landing/assets/og.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Google Play’s closed testing requirement?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Personal Play Console accounts created after 13 November 2023 must run a closed test with at least 12 testers opted in for 14 consecutive days, for each app, before applying for production access. The requirement does not apply to organization accounts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this once per account or once per app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Per app. Each new app on an eligible personal account needs its own 12-tester, 14-day closed test."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do testers leave ratings or reviews on Google Play?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Testers are rewarded for staying opted in, using the app, and sending private day-7 and day-14 feedback. Rewards never depend on installs, ratings, or public Play reviews."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are exchange points cash?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Points are earned only by completing Free Exchange tests and can only be spent to list your own app (12 points). They can never be withdrawn. Cash is a separate balance, earned only on paid-package apps and funded by that developer’s payment."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="announce">
+    <strong>TestLoop</strong> is a working name. Early access — this waitlist is a placeholder and does not store your details yet. Not affiliated with Google.
+  </div>
+  <header class="nav" id="site-nav">
+    <div class="in">
+      <a class="brand" href="#top" aria-label="TestLoop home">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#4f46e5"/>
+          <g transform="translate(16 16)" fill="#c7d2fe">
+            <circle r="5.2" fill="none" stroke="#e0e7ff" stroke-width="1.6"/>
+            <circle cx="0" cy="-9.4" r="1.5"/><circle cx="4.7" cy="-8.14" r="1.5"/>
+            <circle cx="8.14" cy="-4.7" r="1.5"/><circle cx="9.4" cy="0" r="1.5"/>
+            <circle cx="8.14" cy="4.7" r="1.5"/><circle cx="4.7" cy="8.14" r="1.7" fill="#fff"/>
+            <circle cx="0" cy="9.4" r="1.5"/><circle cx="-4.7" cy="8.14" r="1.5"/>
+            <circle cx="-8.14" cy="4.7" r="1.5"/><circle cx="-9.4" cy="0" r="1.5"/>
+            <circle cx="-8.14" cy="-4.7" r="1.5"/><circle cx="-4.7" cy="-8.14" r="1.5"/>
+          </g>
+        </svg>
+        <span class="name">TestLoop<span class="dot">.</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#sdk">SDK</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testers">For testers</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li class="show-mobile"><a href="#waitlist">Join the waitlist</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="#how">See the product</a>
+        <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow light">For Google Play closed testing</p>
+          <h1>12 testers.<br>14 days.<br><em>Actually tracked.</em></h1>
+          <p class="lede">New personal Play Console accounts must keep 12+ testers opted in for 14 consecutive days — for every app — before production access. TestLoop matches testers, follows every tester-day with a small SDK, and collects private feedback. Never Play ratings. Never reviews.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#waitlist">Join the waitlist</a>
+            <a class="btn btn-ghost btn-lg" href="#pricing">View packages</a>
+          </div>
+          <p class="hero-note">Free Exchange or a one-time paid package. No monthly subscription.</p>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit" aria-hidden="true">
+            <div class="ring outer"></div>
+            <div class="ring"></div>
+            <b style="--a:0deg"></b><b style="--a:30deg"></b><b style="--a:60deg"></b>
+            <b style="--a:90deg"></b><b style="--a:120deg"></b><b style="--a:150deg"></b>
+            <b style="--a:180deg"></b><b style="--a:210deg"></b><b style="--a:240deg"></b>
+            <b style="--a:270deg"></b><b style="--a:300deg"></b><b style="--a:330deg"></b>
+          </div>
+          <figure class="shot-frame">
+            <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Developer overview · 14-day test</span></div>
+            <img src="assets/hero-overview.webp" width="1360" height="1060" alt="Prototype screenshot of a developer app overview: day of 14, opted-in tester count, activity chart, and package ledger. Demo data.">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="rule-strip">
+      <div class="wrap">
+        <div class="rule-stat">
+          <div class="num">12<span>+</span></div>
+          <p>Testers must stay opted in, not just invited.</p>
+        </div>
+        <div class="rule-stat">
+          <div class="num">14</div>
+          <p>Consecutive days. Dropouts are replaced automatically.</p>
+        </div>
+        <div class="rule-stat">
+          <div class="num words">Per app</div>
+          <p>Each new app on an eligible personal account needs its own closed test.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="problem">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">The requirement</p>
+          <h2>Play’s closed-test rule is simple. Meeting it is not.</h2>
+          <p class="lede">If your personal Play Console account was created after 13 November 2023, every new app must complete a closed test before you can apply for production. Organization accounts are not subject to this rule.</p>
+        </div>
+        <div class="problem-grid">
+          <article class="fact-card">
+            <h3>What Google asks for</h3>
+            <p>At least 12 testers opted into the closed test, and they need to stay opted in for 14 consecutive days. The production-access form also asks how testers were recruited and how engaged they were.</p>
+            <p>Invites alone are not enough. People drop out, forget to opt in, or never open the app.</p>
+          </article>
+          <article class="fact-card">
+            <h3>What TestLoop is built to do</h3>
+            <p>We recruit a buffer of 16 testers, match them by interest, country and performance, and track daily activity through an SDK you add to a closed-test build.</p>
+            <p>If someone goes quiet, they are reminded, then replaced — so the 12+ streak can keep running. You also get private day-7 and day-14 feedback, and a draft you can use when you apply for production.</p>
+            <div class="pill-row">
+              <span class="pill ok">Rewards engagement + private feedback</span>
+              <span class="pill muted">Never ratings or reviews</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="how">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">How it works</p>
+          <h2>Two sides. One 14-day loop.</h2>
+          <p class="lede">Developers list an app. Testers get assigned by match and performance score. Activity is proven with the SDK, not screenshots of a home screen.</p>
+        </div>
+        <div class="tracks">
+          <article class="track">
+            <header>
+              <p class="eyebrow">For developers</p>
+              <h3>List an app, get a complete test window</h3>
+              <p>Pay with a package, or spend 12 exchange points you earned by testing other apps.</p>
+            </header>
+            <ol class="steps">
+              <li>
+                <span class="n">1</span>
+                <div>
+                  <h3>Choose Free Exchange or a paid package</h3>
+                  <p>Basic, Pro QA or Launch Ready are one-time packages. There is no monthly plan.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">2</span>
+                <div>
+                  <h3>We match testers to your app</h3>
+                  <p>The engine ranks people by category interest, target country, performance score and current load. Professional slots are filled first, from approved pros only.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">3</span>
+                <div>
+                  <h3>Add the SDK and share an opt-in link</h3>
+                  <p>One call: <code>TestLoop.init(context, apiKey)</code>. Testers opt in on Play, then link with a QR code or a 6-character code.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">4</span>
+                <div>
+                  <h3>Watch the 14-day heatmap</h3>
+                  <p>Daily heartbeats, automatic replacements, day-7 and day-14 private feedback, and an evidence report for the production-access form.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+          <article class="track">
+            <header>
+              <p class="eyebrow">For testers</p>
+              <h3>Get assigned. Stay active. Get paid in points or cash.</h3>
+              <p>You do not pick from a random list. Apps are assigned to you when you are a good match.</p>
+            </header>
+            <ol class="steps">
+              <li>
+                <span class="n">1</span>
+                <div>
+                  <h3>Set your device, country and interests</h3>
+                  <p>Opt into Free Exchange, paid testing, or both. Paid cash work unlocks at Silver level, after verification, or as an approved pro.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">2</span>
+                <div>
+                  <h3>Opt in on Play, then link the app once</h3>
+                  <p>Scan the QR or type the 6-character code. The SDK stores a tester token on the device — no personal data is sent.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">3</span>
+                <div>
+                  <h3>Open the app across 14 days</h3>
+                  <p>Use it as a real tester would. A missed day gets a reminder; three silent days is a strike and you are replaced.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">4</span>
+                <div>
+                  <h3>Send private feedback on day 7 and day 14</h3>
+                  <p>Rewards settle only after both forms. You are never asked to rate or review the app on Google Play.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="product">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Inside the product</p>
+          <h2>A heatmap, not a hope and a spreadsheet.</h2>
+          <p class="lede">Screenshots below are from the working prototype and use demo data — not live customer accounts.</p>
+        </div>
+        <div class="shots">
+          <figure class="shot-frame">
+            <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Testers &amp; heatmap</span></div>
+            <img src="assets/heatmap-crop.webp" width="1360" height="1292" alt="Prototype screenshot of a per-tester 14-day activity heatmap, with minutes per day, replacements, and a Gmail list to paste into Play Console. Demo data.">
+            <figcaption class="caption" style="padding:12px 16px 16px">Each tester gets a 14-cell activity grid. You also get a Gmail list to paste into the Play Console closed track.</figcaption>
+          </figure>
+          <div class="shot-copy">
+            <figure class="shot-frame">
+              <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Tester link · QR + code</span></div>
+              <img src="assets/tester-link.webp" width="1360" height="954" alt="Prototype screenshot of a tester assignment page with a QR code, a 6-character link code, and a 14-day activity row. Demo data.">
+            </figure>
+            <div class="mini-feat">
+              <h3>Link once, then just use the app</h3>
+              <p>Testers scan a QR or type a 6-character code. After that, session heartbeats run in the background — including an offline queue if the phone was not connected.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="sdk">
+      <div class="wrap">
+        <div class="sdk">
+          <div>
+            <p class="eyebrow">The SDK</p>
+            <h2>One line in your closed-test build.</h2>
+            <p class="lede">An Android library written in Kotlin, and a Flutter plugin in Dart. Turn it on only for the build you upload to the closed track.</p>
+            <ul class="sdk-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong>TestLoop.init(context, apiKey)</strong> — session heartbeats while the app is in the foreground.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong>Offline queue</strong> — missed pings are stored on device and credited to the day they happened (up to 3 days back).</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong>INTERNET permission only.</strong> The SDK sends your API key, a tester token, foreground seconds, timestamps, and optional feature-event names you choose.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong>No personal data.</strong> No device IDs, accounts, location, or contacts.</span>
+              </li>
+            </ul>
+            <div class="sdk-pills">
+              <span class="pill">Android · Kotlin</span>
+              <span class="pill">Flutter · Dart</span>
+              <span class="pill muted">Not yet on Maven or pub.dev</span>
+            </div>
+          </div>
+          <div class="code" aria-label="Android SDK initialization example">
+            <div class="bar"><span>Application.kt</span><span>Kotlin</span></div>
+            <pre><code><span class="cm">// In Application.onCreate(), on a closed-test build</span>
+<span class="fn">TestLoop</span>.init(context, apiKey)
+
+<span class="cm">// Testers link once, via QR or a 6-character code</span>
+TestLoop.linkWithCode(code)
+TestLoop.setTesterToken(<span class="str">"tt_…"</span>)
+
+<span class="cm">// Optional: feature usage you care about</span>
+TestLoop.trackEvent(<span class="str">"export_csv"</span>)</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">Pricing</p>
+          <h2>Start free, or pay once per app.</h2>
+          <p class="lede">Every package over-recruits 16 community testers so you can keep 12+ opted in. Prices are in US dollars, charged once per listed app — not a subscription.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price">
+            <div class="name">Free Exchange</div>
+            <div class="amt">$0</div>
+            <p class="blurb">Test other developers’ apps to earn points, then spend them on testers for yours. No money changes hands.</p>
+            <ul>
+              <li>Earn 1–3 exchange points per completed 14-day test</li>
+              <li>Spend 12 points to list your app</li>
+              <li>Points are never cash</li>
+              <li>16 exchange testers, auto-replaced on dropout</li>
+              <li>14-day SDK activity tracking</li>
+              <li>Day 7 / day 14 feedback</li>
+            </ul>
+            <a class="btn btn-outline btn-block" href="#waitlist">Join with Free Exchange</a>
+          </article>
+          <article class="price">
+            <div class="name">Basic</div>
+            <div class="amt">$15</div>
+            <p class="blurb">16 cash-paid community testers with tracking and feedback — no exchange work needed.</p>
+            <ul>
+              <li>16 community testers (buffer above 12)</li>
+              <li>14-day SDK activity tracking + heatmap</li>
+              <li>Day 7 / day 14 feedback report</li>
+              <li>Auto-replacement of dropouts</li>
+              <li>Production-access evidence report</li>
+            </ul>
+            <a class="btn btn-outline btn-block" href="#waitlist">Start with Basic</a>
+          </article>
+          <article class="price feat">
+            <span class="tag">Most popular</span>
+            <div class="name">Pro QA</div>
+            <div class="amt">$59</div>
+            <p class="blurb">Basic, plus verified Professional Testers running your structured test cases.</p>
+            <ul>
+              <li>Everything in Basic</li>
+              <li>3 verified Professional Testers</li>
+              <li>Structured test cases (yours or our templates)</li>
+              <li>Bug reports: steps, device, severity, screenshot</li>
+              <li>2–3 screen-recording links per pro tester</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="#waitlist">Start with Pro QA</a>
+          </article>
+          <article class="price">
+            <div class="name">Launch Ready</div>
+            <div class="amt">$149</div>
+            <p class="blurb">Pro QA with 5 pros, plus a UX review, Play listing review, full QA report and production-form draft.</p>
+            <ul>
+              <li>Everything in Pro QA (5 pro testers)</li>
+              <li>UX review</li>
+              <li>Play Store listing review</li>
+              <li>Full QA report</li>
+              <li>Reviewed draft answers for the Google production access form</li>
+            </ul>
+            <a class="btn btn-outline btn-block" href="#waitlist">Start with Launch Ready</a>
+          </article>
+        </div>
+        <p class="price-note">Cash paid to testers comes from that developer’s payment, not out of the platform’s pocket. Community testers earn $0.25–$0.75 per completed paid test; professional testers earn $5–$15.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="testers">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">For testers</p>
+          <h2>Levels, streaks, referrals — and a path to pro work.</h2>
+          <p class="lede">Your performance score decides which apps you see next. Stay consistent, write useful private feedback, and you move up.</p>
+        </div>
+        <div class="tester-grid">
+          <article class="card">
+            <h3>Performance, then level</h3>
+            <p>Score is based on how many days you stayed active, whether feedback arrived on time, and the developer’s private rating of that feedback — minus open strikes.</p>
+            <div class="levels">
+              <div class="level bronze"><strong>Bronze</strong><span>Getting started</span></div>
+              <div class="level silver"><strong>Silver</strong><span>Score 60+ and 1 completed test. Paid work can unlock here.</span></div>
+              <div class="level gold"><strong>Gold</strong><span>Score 75+ and 2 completed tests. You can apply to be a pro.</span></div>
+              <div class="level pro"><strong>Pro</strong><span>Score 88+ and 4 completed tests</span></div>
+            </div>
+          </article>
+          <div>
+            <figure class="shot-frame">
+              <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Tester dashboard</span></div>
+              <img src="assets/tester-dashboard.webp" width="1360" height="1534" style="max-height:340px;object-fit:cover;object-position:top" alt="Prototype screenshot of a tester dashboard showing performance score, streak, exchange points and cash balances, and assigned apps. Demo data.">
+            </figure>
+            <p class="caption">Streak bonus: +2 exchange points every 3 clean completions. Referral: you and your invitee both get +4 exchange points when they finish their first test. Streak and referral bonuses are points only, never cash.</p>
+          </div>
+        </div>
+        <div class="pay-cards">
+          <article class="card">
+            <h3>Free Exchange</h3>
+            <div class="amt">1–3 pts</div>
+            <p>Per completed 14-day test. Spend 12 points to list your own app. Points are never withdrawable.</p>
+          </article>
+          <article class="card">
+            <h3>Community, paid apps</h3>
+            <div class="amt">$0.25–$0.75</div>
+            <p>Per completed test, funded by that developer’s package. Cash withdrawals start at $5.</p>
+          </article>
+          <article class="card">
+            <h3>Professional testers</h3>
+            <div class="amt">$5–$15</div>
+            <p>Gold or Pro level testers can apply with a qualification bug report or portfolio. An admin approves the pro track. Pros run structured cases, file bugs, and attach recordings.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="qa">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Pro QA &amp; Launch Ready</p>
+          <h2>Real test cases, bugs and a form draft — not just a headcount.</h2>
+          <p class="lede">Pro testers work from your cases or our category templates. Launch Ready adds a UX review, a Play listing review, a full QA report, and reviewed draft answers for Google’s production-access form.</p>
+        </div>
+        <figure class="shot-frame">
+          <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Launch Ready · QA report</span></div>
+          <img src="assets/qa-crop.webp" width="1360" height="1251" style="max-height:560px;object-fit:cover;object-position:top" alt="Prototype screenshot of a Launch Ready QA report with test-case results, bug reports by severity, and professional testers. Demo data.">
+        </figure>
+        <p class="caption">The production-form draft is written to be honest: it states how testers were recruited and that rewards never depended on ratings or reviews.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="trust">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">Built to stay on the right side of policy</p>
+          <h2>We reward the test, not the review.</h2>
+          <p class="lede">Incentivized installs, ratings and reviews are a well-known Play policy risk. TestLoop is designed around engagement and private feedback instead.</p>
+        </div>
+        <div class="trust-grid">
+          <article class="trust">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>No Play ratings or reviews</h3>
+            <p>Testers submit private day-7 and day-14 forms inside TestLoop. Rewards never depend on a star rating or a public review.</p>
+          </article>
+          <article class="trust">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5m0 14h16M8 17V9m4 8V7m4 10v-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Activity you can show</h3>
+            <p>SDK heartbeats, a 14-day heatmap, and an evidence report give you something concrete to attach to the production-access form.</p>
+          </article>
+          <article class="trust">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Cash is escrowed per app</h3>
+            <p>Payouts for a paid app are capped at what that developer paid. Exchange points stay in a separate ledger and can never be withdrawn as cash.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions worth answering clearly.</h2>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>What is Google Play’s closed testing requirement?</summary>
+            <p>Personal Play Console accounts created after 13 November 2023 must run a closed test with at least 12 testers opted in for 14 consecutive days, for each app, before applying for production access. Organization accounts are not subject to this rule.</p>
+          </details>
+          <details>
+            <summary>Is this once per account, or once per app?</summary>
+            <p>Once per app. If you ship several apps from an eligible personal account, each one needs its own 12-tester, 14-day closed test.</p>
+          </details>
+          <details>
+            <summary>How does Free Exchange work if I have no points yet?</summary>
+            <p>You test other developers’ Free Exchange apps first. Each completed 14-day test (both feedback forms) earns 1–3 points. Listing your own app costs 12 points. Points are never cash and cannot be withdrawn.</p>
+          </details>
+          <details>
+            <summary>Who decides how many points or how much cash a tester gets?</summary>
+            <p>Final quality is 60% the developer’s private rating and 40% an automatic score (feedback length, evidence, and whether both forms arrived on time; for pros, test cases run, bugs filed, and recordings attached). If the developer does not rate within 3 days, the automatic score is used alone. Every completed test gets at least the minimum (1 point or $0.25; pros $5). Dropouts and missing feedback earn nothing.</p>
+          </details>
+          <details>
+            <summary>What does the SDK collect?</summary>
+            <p>Your API key, the tester’s TestLoop token, foreground session seconds, timestamps, and optional feature-event names you choose to track. It needs only the INTERNET permission. It does not collect device IDs, accounts, location or other personal data.</p>
+          </details>
+          <details>
+            <summary>Can you prove a tester opted in on Play?</summary>
+            <p>Google does not expose per-tester opt-in through an API. In TestLoop, “opted in” means the tester was assigned, has not been dropped, and is sending SDK heartbeats. You still paste the tester Gmail list and opt-in link into Play Console yourself.</p>
+          </details>
+          <details>
+            <summary>Do testers leave ratings or reviews on Google Play?</summary>
+            <p>No. Testers are rewarded for staying opted in, using the app, and sending private feedback. Rewards never depend on installs, ratings, or public Play reviews.</p>
+          </details>
+          <details>
+            <summary>Is TestLoop live? Are payments working?</summary>
+            <p>This page is for early interest. The product is a working prototype: payments and payouts are not connected to a live processor yet, and the SDK has not been published to Maven Central or pub.dev. The waitlist form on this page does not store your information yet.</p>
+          </details>
+          <details>
+            <summary>Is TestLoop affiliated with Google?</summary>
+            <p>No. TestLoop is an independent project, and TestLoop is a working name. Google Play and the Play Console are trademarks of Google LLC.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="waitlist">
+      <div class="wrap cta-grid">
+        <div>
+          <p class="eyebrow light">Early access</p>
+          <h2>Join the waitlist for TestLoop.</h2>
+          <p class="lede">Tell us whether you are listing an app, testing apps, or both. This form is a placeholder — it does not send or store anything yet. When sign-ups open, we will put a real form here.</p>
+        </div>
+        <form class="waitlist" id="waitlist-form" action="#" method="post" novalidate>
+          <p class="ok-msg" role="status" aria-live="polite">Thanks — this is a preview waitlist, so nothing was submitted. When TestLoop opens for sign-ups, a working form will replace this one.</p>
+          <div class="fields">
+            <div class="field">
+              <label for="wl-name">Name</label>
+              <input id="wl-name" name="name" type="text" autocomplete="name" placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="wl-email">Email</label>
+              <input id="wl-email" name="email" type="email" autocomplete="email" required placeholder="you@studio.dev">
+            </div>
+            <div class="field">
+              <label for="wl-role">I am a…</label>
+              <select id="wl-role" name="role">
+                <option value="developer">Developer — I need testers for an app</option>
+                <option value="tester">Tester — I want to test apps</option>
+                <option value="both">Both — I’ll test others and list my own</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block btn-lg" type="submit">Join the waitlist</button>
+          <p class="hint">Placeholder only. We do not collect a password or payment details here, and this form does not save your email. No account is created.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="in">
+      <div>
+        <a class="brand" href="#top">
+          <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#4f46e5"/>
+            <g transform="translate(16 16)" fill="#c7d2fe">
+              <circle r="5.2" fill="none" stroke="#e0e7ff" stroke-width="1.6"/>
+              <circle cx="0" cy="-9.4" r="1.5"/><circle cx="4.7" cy="-8.14" r="1.5"/>
+              <circle cx="8.14" cy="-4.7" r="1.5"/><circle cx="9.4" cy="0" r="1.5"/>
+              <circle cx="8.14" cy="4.7" r="1.5"/><circle cx="4.7" cy="8.14" r="1.7" fill="#fff"/>
+              <circle cx="0" cy="9.4" r="1.5"/><circle cx="-4.7" cy="8.14" r="1.5"/>
+              <circle cx="-8.14" cy="4.7" r="1.5"/><circle cx="-9.4" cy="0" r="1.5"/>
+              <circle cx="-8.14" cy="-4.7" r="1.5"/><circle cx="-4.7" cy="-8.14" r="1.5"/>
+            </g>
+          </svg>
+          <span class="name">TestLoop<span class="dot">.</span></span>
+        </a>
+        <p>TestLoop is a working name for a Google Play closed-testing tester marketplace. Independent project — not affiliated with Google. Google Play and the Play Console are trademarks of Google LLC.</p>
+      </div>
+      <p>Product screenshots use prototype demo data. Payments and payouts in the prototype are not live. <a href="https://github.com/waleed43/testloop-landing">Source on GitHub</a>.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
